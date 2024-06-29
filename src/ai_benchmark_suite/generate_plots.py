@@ -29,9 +29,9 @@ def generate_plot(csv_file, data_point_key):
         plt.figure()
 
         # For horizontal bar chart, switch the axes by using plt.barh
-        plt.barh(device_df["device_name"], device_df[data_point_key])
+        plt.barh(device_df["hardware_name"], device_df[data_point_key])
 
-        plt.ylabel("device_name")  # Now y-axis is device_name
+        plt.ylabel("hardware_name")  # Now y-axis is hardware_name
         plt.xlabel(data_point_key)  # x-axis is the data_point_key
 
         plt.title(f"{csv_file} {data_point_key} for {device}")
@@ -41,6 +41,8 @@ def generate_plot(csv_file, data_point_key):
 def main():
     # Example usage
     generate_plot("mnist", "average_training_time_per_epoch")
+    generate_plot("qwen2-1_5B", "num_generated_tokens_per_second")
+    generate_plot("qwen2-7B", "num_generated_tokens_per_second")
 
 
 if __name__ == "__main__":

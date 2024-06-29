@@ -19,8 +19,10 @@ class DeviceInformation:
     machine: str
     node: str
     # hardware information
+    cpu_name: str
     cpu_count: str
     memory: str
+    gpu_name: str
     cuda: str
     mps: str
     # python information
@@ -42,8 +44,10 @@ class DeviceInformation:
             self.release = device_info["release"]
             self.machine = device_info["machine"]
             self.node = device_info["node"]
+            self.cpu_name = device_info["cpu_name"]
             self.cpu_count = device_info["cpu_count"]
             self.memory = device_info["memory"]
+            self.gpu_name = device_info["gpu_name"]
             self.cuda = device_info["cuda"]
             self.mps = device_info["mps"]
             self.python_version = device_info["python_version"]
@@ -54,7 +58,7 @@ class DeviceInformation:
     def to_dict(self):
         return {
             "device_name": self._get_device_hash(),
-            "processor": self.processor,
+            "hardware_name": f"{self.cpu_name}|{self.gpu_name}",
             "system": self.system,
             "cpu_count": self.cpu_count,
             "memory": self.memory,
@@ -67,6 +71,12 @@ class DeviceInformation:
         }
 
     def _gather_device_information():
+        # ask the user for the CPU and GPU model
+        print("Please enter the CPU model [Ryzen_7_7900X|Core_i7_14700K|M3_12Core]:")
+        cpu_name = input()
+        print("Please enter the GPU model [RX7900XT|RTX4090|M3_18Core]:")
+        gpu_name = input()
+
         device_info = {
             #
             # system information
@@ -78,8 +88,10 @@ class DeviceInformation:
             "node": platform.node(),
             #
             # hardware information
+            "cpu_name": cpu_name,
             "cpu_count": os.cpu_count(),
             "memory": psutil.virtual_memory().total / 1024 / 1024 / 1024,
+            "gpu_name": gpu_name,
             "cuda": torch.cuda.is_available(),
             "mps": torch.backends.mps.is_available(),
             #
@@ -97,7 +109,7 @@ class DeviceInformation:
         """
         i want to anonymize the device information by hashing the platform, node, machine and release together
         """
-        hash_input = f"{self.platform}{self.node}{self.machine}{self.release}".encode(
+        hash_input = f"{self.platform}{self.node}{self.machine}{self.release}{self.processor}".encode(
             "utf-8"
         )
         return hashlib.sha256(hash_input).hexdigest()

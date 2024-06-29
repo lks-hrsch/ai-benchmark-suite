@@ -1,5 +1,3 @@
-device_name,processor,system,cpu_count,memory,cuda,mps,python_version,python_compiler,python_implementation,torch_version,device,average_training_time_per_epoch,total_training_time,date
-24fd3f64221e934c2932850d70a0338358bc38da67875a890d4b6444bc5fb231,arm,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,mps,5.525595879554748,55.255958795547485,2024-06-28
-24fd3f64221e934c2932850d70a0338358bc38da67875a890d4b6444bc5fb231,arm,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,cpu,41.48573474884033,414.8573474884033,2024-06-28
-08b1401138058574659868b00c4a906d983d9aa1e20d06c92aab316dddcc6eea,,Linux,24,30.987865447998047,True,False,3.12.4,GCC 14.1.1 20240522,CPython,2.3.1+cu121,cuda,3.309565305709839,33.09565305709839,2024-06-29
-08b1401138058574659868b00c4a906d983d9aa1e20d06c92aab316dddcc6eea,,Linux,24,30.987865447998047,True,False,3.12.4,GCC 14.1.1 20240522,CPython,2.3.1+cu121,cpu,12.889670705795288,128.89670705795288,2024-06-29
+device_name,hardware_name,system,cpu_count,memory,cuda,mps,python_version,python_compiler,python_implementation,torch_version,device,average_training_time_per_epoch,total_training_time,date
+606386391570a84cdd0d0e5868f35b22dba271ba8d7fe65fb31401c08356226d,M3_12Core|M3_18Core,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,mps,5.451073670387268,54.51073670387268,2024-06-29
+606386391570a84cdd0d0e5868f35b22dba271ba8d7fe65fb31401c08356226d,M3_12Core|M3_18Core,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,cpu,41.768758583068845,417.6875858306885,2024-06-29

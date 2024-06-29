@@ -14,6 +14,9 @@ def safe_measure_point(data: dict, filename: str):
     # also add the current date to the data_point
     data_point["date"] = datetime.now().strftime("%Y-%m-%d")
 
+    # if there is already a saved combination of device and device_name than we overwrite the existing data_point
+    # TODO: this should be implemented
+
     # save data_point as .csv file at filename if the file does not exist set the keys as the header
     with open(f"{RESULT_FOLDER}/{filename}", "a") as f:
         if f.tell() == 0:

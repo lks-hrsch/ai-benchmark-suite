@@ -1,0 +1,3 @@
+device_name,hardware_name,system,cpu_count,memory,cuda,mps,python_version,python_compiler,python_implementation,torch_version,device,average_inference_time,total_inference_time,average_generated_tokens,num_generated_tokens_per_second,date
+606386391570a84cdd0d0e5868f35b22dba271ba8d7fe65fb31401c08356226d,M3_12Core|M3_18Core,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,cpu,546.2588692188262,2731.2943460941315,354.6,0.6491427782346001,2024-06-29
+606386391570a84cdd0d0e5868f35b22dba271ba8d7fe65fb31401c08356226d,M3_12Core|M3_18Core,Darwin,12,36.0,False,True,3.12.4,Clang 15.0.0 (clang-1500.3.9.4),CPython,2.3.1,mps,71.72769122123718,358.6384561061859,387.4,5.400982429576631,2024-06-29
