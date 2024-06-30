@@ -72,9 +72,9 @@ class DeviceInformation:
 
     def _gather_device_information():
         # ask the user for the CPU and GPU model
-        print("Please enter the CPU model [Ryzen_7_7900X|Core_i7_14700K|M3_12Core]:")
+        print("Please enter the CPU model [Ryzen_9_7900X|Core_i7_14700K|M3PRO_12Core]:")
         cpu_name = input()
-        print("Please enter the GPU model [RX7900XT|RTX4090|M3_18Core]:")
+        print("Please enter the GPU model [RX7900XT|RTX4090|M3PRO_18Core]:")
         gpu_name = input()
 
         device_info = {
