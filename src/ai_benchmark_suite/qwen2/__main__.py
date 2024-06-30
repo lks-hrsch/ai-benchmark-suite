@@ -1,5 +1,7 @@
+import gc
 import time
 
+import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from ..device_information import DeviceInformation
@@ -60,6 +62,13 @@ def statistics(device, inference_times, generated_tokens, file_name):
     )
 
 
+def empty_caching_files(device):
+    if device == "cuda":
+        torch.cuda.empty_cache()
+
+    gc.collect()
+
+
 def _1_5B_Instruct(device):
     MODEL_ID = "Qwen/Qwen2-1.5B-Instruct"
 
@@ -93,10 +102,11 @@ def _1_5B_Instruct(device):
 
     file_name = "qwen2-1_5B.csv"
 
+    statistics(device, inference_times, generated_tokens, file_name)
+
     del model
     del tokenizer
-
-    statistics(device, inference_times, generated_tokens, file_name)
+    empty_caching_files(device)
 
 
 def _7B_Instruct(device):
@@ -132,10 +142,11 @@ def _7B_Instruct(device):
 
     file_name = "qwen2-7B.csv"
 
+    statistics(device, inference_times, generated_tokens, file_name)
+
     del model
     del tokenizer
-
-    statistics(device, inference_times, generated_tokens, file_name)
+    empty_caching_files(device)
 
 
 def main():
