@@ -13,7 +13,7 @@ torchvision = "^0.18.1"
 psutil = "^6.0.0"
 matplotlib = "^3.9.0"
 pandas = "^2.2.2"
-transformers = "^4.42.3"
+transformers = "^4.48.0"
 accelerate = "^0.31.0"
 
 
